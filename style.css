@@ -1,0 +1,112 @@
+*{
+    color: rgb(0, 60, 255);
+    font-family: myFont;
+}
+
+@font-face {
+    font-family: myFont;
+    src: url(font/prstart.ttf);
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    justify-content: center;
+    align-items: center; 
+    background-color: chocolate;
+}
+
+h1 {
+    position: relative;
+    border: cornsilk;
+    background-color: crimson;
+    padding-left: 43%;
+
+}
+
+h2 {
+    position: absolute;
+    margin: 20px;
+}
+
+.container {
+    position: relative; 
+    display: block; 
+    width: 100px;
+    background-color: antiquewhite; 
+    left: 75%;
+}
+
+.head {
+    position: absolute;
+    left: 35px;
+    margin: 20px;
+    height: 30px;
+    width: 30px;
+    background-color: darkgreen;
+}
+
+.neck {
+    position: absolute;
+    left: 45px;
+    top: 30px;
+    margin: 20px;
+    height: 10px;
+    width: 10px;
+    background-color: darkgreen;
+}
+.body {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+    margin: 20px;
+    height: 50px;
+    width: 40px;
+    background-color: darkgreen;
+}
+.larm {
+    position: absolute;
+    left: 25px;
+    top: 40px;
+    margin: 20px;
+    height: 40px;
+    width: 10px;
+    background-color: darkgreen;
+}
+.rarm {
+    position: absolute;
+    left: 65px;
+    top: 40px;
+    margin: 20px;
+    height: 40px;
+    width: 10px;
+    background-color: darkgreen;
+}
+.lleg {
+    position: absolute;
+    top: 90px;
+    left: 39px;
+    margin: 20px;
+    height: 30px;
+    width: 10px;
+    background-color: darkgreen;
+}
+.rleg{
+    position: absolute;
+    top: 90px;
+    left: 51px;
+    margin: 20px;
+    height: 30px;
+    width: 10px;
+    background-color: darkgreen;
+}
+
+.table {
+    position: relative;
+    top: 200px;
+    width: 95%;
+    left: 5%;
+}
