@@ -54,8 +54,10 @@ body {
     width: 50%;
     top: 50px;
     left: 12%;
+    height: 50px;   
+    text-align: center; 
+    font-size: xx-large;
     border-bottom: 2px solid black;
-    height: 50px;
 }
 
 #container {
@@ -166,5 +168,20 @@ td{
 .word:hover{
     background-color:red;
     cursor: pointer;
+}
+
+#gameOver{
+    position: fixed;
+    left: 20%;
+    top: 30%;
+    width: 60%;
+    height: 40%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 90px;
+    background-color: red;
+    border: 2px dotted black;
+    visibility: hidden;
 }
 

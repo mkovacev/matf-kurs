@@ -11,7 +11,20 @@ function putLetterInList(letter){
 }
 
 function putLetterInWord(letter){
-
+    var n = guessingWord.indexOf(letter)
+    
+    while(n != -1){
+        newStatusWord = ""
+        for(var i = 0; i < guessingWord.length; i++){
+            if(i == n){
+                newStatusWord = newStatusWord + letter
+            }else{
+                newStatusWord = newStatusWord + statusWord.charAt(i)
+            }
+            
+            
+        }
+    }
 }
 
 function hangman(hangmanState){
@@ -91,7 +104,16 @@ function hangman(hangmanState){
 }
 
 function gameOver(){
-    
+    document.getElementById("gameOver").style.visibility = "visible"
+}
+
+function initStatusWord(statusWord){
+    for(var i = 0; i < guessingWord.length; i++){
+        console.log(statusWord)
+        statusWord = statusWord + "- "
+    }
+
+    document.getElementById("wordToGuess").innerText = statusWord
 }
 
 function checkLetter(letter){
@@ -121,5 +143,7 @@ function checkLetter(letter){
 var clickedLetters = ""
 var guessingWord = "DOCTORS"
 var hangmanState = 0
+var statusWord = ""
+initStatusWord(statusWord)
 console.log(hangmanState)
 hangman(hangmanState)
