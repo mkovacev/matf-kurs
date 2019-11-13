@@ -1,11 +1,13 @@
 *{
-    color: rgb(0, 60, 255);
+    color: rgb(0, 0, 0);
     font-family: myFont;
+    font-size: 115%;
+    
 }
 
 @font-face {
     font-family: myFont;
-    src: url(font/prstart.ttf);
+    src: url(font/orange\ juice\ 2.0.ttf);
 }
 
 html {
@@ -19,28 +21,30 @@ body {
     background-color: chocolate;
 }
 
-h1 {
+#title{
     position: relative;
+    font-size: xxx-large;
+    text-align: center;
     border: cornsilk;
     background-color: crimson;
-    padding-left: 43%;
+
 
 }
 
-h2 {
-    position: absolute;
+#score {
+    position: relative;
     margin: 20px;
+    text-align: center;
 }
 
-.container {
+#container {
     position: relative; 
-    display: block; 
     width: 100px;
     background-color: antiquewhite; 
     left: 75%;
 }
 
-.head {
+#head {
     position: absolute;
     left: 35px;
     margin: 20px;
@@ -49,7 +53,7 @@ h2 {
     background-color: darkgreen;
 }
 
-.neck {
+#neck {
     position: absolute;
     left: 45px;
     top: 30px;
@@ -58,7 +62,7 @@ h2 {
     width: 10px;
     background-color: darkgreen;
 }
-.body {
+#body {
     position: absolute;
     left: 30px;
     top: 40px;
@@ -67,7 +71,7 @@ h2 {
     width: 40px;
     background-color: darkgreen;
 }
-.larm {
+#larm {
     position: absolute;
     left: 25px;
     top: 40px;
@@ -76,7 +80,7 @@ h2 {
     width: 10px;
     background-color: darkgreen;
 }
-.rarm {
+#rarm {
     position: absolute;
     left: 65px;
     top: 40px;
@@ -85,7 +89,7 @@ h2 {
     width: 10px;
     background-color: darkgreen;
 }
-.lleg {
+#lleg {
     position: absolute;
     top: 90px;
     left: 39px;
@@ -94,7 +98,7 @@ h2 {
     width: 10px;
     background-color: darkgreen;
 }
-.rleg{
+#rleg{
     position: absolute;
     top: 90px;
     left: 51px;
@@ -104,9 +108,32 @@ h2 {
     background-color: darkgreen;
 }
 
-.table {
+#wordToGuess{
+    position: static;
+    background-color: chartreuse;
+    height: 50px;
+}
+
+table {
     position: relative;
     top: 200px;
-    width: 95%;
+    width: 90%;
     left: 5%;
+    
 }
+
+td{
+    text-align: center;
+    height: 30px;
+}
+
+.word{
+    border: 2px solid black;
+    
+}
+
+.word:hover{
+    background-color:red;
+    cursor: pointer;
+}
+
