@@ -21,6 +21,12 @@ body {
     background-color: chocolate;
 }
 
+#wrapper1 {
+    position: relative;
+    width: 90%;
+    left: 5%;
+}
+
 #title{
     position: relative;
     font-size: xxx-large;
@@ -37,8 +43,23 @@ body {
     text-align: center;
 }
 
+#wrapper2 {
+    position: relative;
+    width: 90%;
+    left: 5%;
+}
+
+#wordToGuess{
+    position: absolute;
+    width: 50%;
+    top: 50px;
+    left: 12%;
+    border-bottom: 2px solid black;
+    height: 50px;
+}
+
 #container {
-    position: relative; 
+    position: absolute; 
     width: 100px;
     background-color: antiquewhite; 
     left: 75%;
@@ -108,23 +129,33 @@ body {
     background-color: darkgreen;
 }
 
-#wordToGuess{
-    position: static;
-    background-color: chartreuse;
+#wrapper3 {
+    position: absolute;
+    width: 90%;
+    height: 35%;
+    left: 5%;
+    bottom: 10%;
+}
+
+#clickedLetters{
+    position: relative;
     height: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    border-bottom: 2px solid black;
 }
 
 table {
     position: relative;
-    top: 200px;
-    width: 90%;
-    left: 5%;
-    
+    width: 100%;
+    top: 15%;
 }
 
 td{
     text-align: center;
     height: 30px;
+    width: 10%;
 }
 
 .word{

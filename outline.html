@@ -8,62 +8,70 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <div id="title">HANGMAN</div>
-        <div id="score">score:</div>
-        <div id="container">
-            <div id="head"></div>
-            <div id="neck"></div>
-            <div id="body"></div>
-            <div id="rarm"></div>
-            <div id="larm"></div>
-            <div id="rleg"></div>
-            <div id="lleg"></div>
+        <div id="wrapper1">
+            <div id="title">HANGMAN</div>
+            <div id="score">score:</div>
         </div>
 
-        <div id="wordToGuess">
+        <div id="wrapper2">
+
+            <div id="wordToGuess"></div>
+
+            <div id="container">
+                <div id="head"></div>
+                <div id="neck"></div>
+                <div id="body"></div>
+                <div id="rarm"></div>
+                <div id="larm"></div>
+                <div id="rleg"></div>
+                <div id="lleg"></div>
+            </div>
         </div>
 
-        <table>
-            <tr>
-                <td class="word" id="A" onclick="checkLetter('A')">A</td>
-                <td class="word" id="B" onclick="checkLetter('B')">B</td>
-                <td class="word" id="C" onclick="checkLetter('C')">C</td>
-                <td class="word" id="D" onclick="checkLetter('D')">D</td>
-                <td class="word" id="E" onclick="checkLetter('E')">E</td>
-                <td class="word" id="F" onclick="checkLetter('F')">F</td>
-                <td class="word" id="G" onclick="checkLetter('G')">G</td>
-                <td class="word" id="H" onclick="checkLetter('H')">H</td>
-                <td class="word" id="I" onclick="checkLetter('I')">I</td>
-                <td class="word" id="J" onclick="checkLetter('J')">J</td>
-            </tr>
-            <tr></tr>
-            <tr>
-                <td class="word" id="K" onclick="checkLetter('K')">K</td>
-                <td class="word" id="L" onclick="checkLetter('L')">L</td>
-                <td class="word" id="M" onclick="checkLetter('M')">M</td>
-                <td class="word" id="N" onclick="checkLetter('N')">N</td>
-                <td class="word" id="O" onclick="checkLetter('O')">O</td>
-                <td class="word" id="P" onclick="checkLetter('P')">P</td>
-                <td class="word" id="Q" onclick="checkLetter('Q')">Q</td>
-                <td class="word" id="R" onclick="checkLetter('R')">R</td>
-                <td class="word" id="S" onclick="checkLetter('S')">S</td>
-                <td class="word" id="T" onclick="checkLetter('T')">T</td>
-            </tr>
-            <tr></tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td class="word" id="U" onclick="checkLetter('U')">U</td>
-                <td class="word" id="V" onclick="checkLetter('V')">V</td>
-                <td class="word" id="W" onclick="checkLetter('W')">W</td>
-                <td class="word" id="X" onclick="checkLetter('X')">X</td>
-                <td class="word" id="Y" onclick="checkLetter('Y')">Y</td>
-                <td class="word" id="Z" onclick="checkLetter('Z')">Z</td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        
+        <div id="wrapper3">
+            <div id="clickedLetters"></div>
+
+            <table>
+                <tr>
+                    <td class="word" id="A" onclick="checkLetter('A')">A</td>
+                    <td class="word" id="B" onclick="checkLetter('B')">B</td>
+                    <td class="word" id="C" onclick="checkLetter('C')">C</td>
+                    <td class="word" id="D" onclick="checkLetter('D')">D</td>
+                    <td class="word" id="E" onclick="checkLetter('E')">E</td>
+                    <td class="word" id="F" onclick="checkLetter('F')">F</td>
+                    <td class="word" id="G" onclick="checkLetter('G')">G</td>
+                    <td class="word" id="H" onclick="checkLetter('H')">H</td>
+                    <td class="word" id="I" onclick="checkLetter('I')">I</td>
+                    <td class="word" id="J" onclick="checkLetter('J')">J</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td class="word" id="K" onclick="checkLetter('K')">K</td>
+                    <td class="word" id="L" onclick="checkLetter('L')">L</td>
+                    <td class="word" id="M" onclick="checkLetter('M')">M</td>
+                    <td class="word" id="N" onclick="checkLetter('N')">N</td>
+                    <td class="word" id="O" onclick="checkLetter('O')">O</td>
+                    <td class="word" id="P" onclick="checkLetter('P')">P</td>
+                    <td class="word" id="Q" onclick="checkLetter('Q')">Q</td>
+                    <td class="word" id="R" onclick="checkLetter('R')">R</td>
+                    <td class="word" id="S" onclick="checkLetter('S')">S</td>
+                    <td class="word" id="T" onclick="checkLetter('T')">T</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="word" id="U" onclick="checkLetter('U')">U</td>
+                    <td class="word" id="V" onclick="checkLetter('V')">V</td>
+                    <td class="word" id="W" onclick="checkLetter('W')">W</td>
+                    <td class="word" id="X" onclick="checkLetter('X')">X</td>
+                    <td class="word" id="Y" onclick="checkLetter('Y')">Y</td>
+                    <td class="word" id="Z" onclick="checkLetter('Z')">Z</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>        
+        </div>        
 
 
         <script src="action.js"></script>
