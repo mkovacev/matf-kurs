@@ -11,19 +11,12 @@ function putLetterInList(letter){
 }
 
 function putLetterInWord(letter){
-    var n = guessingWord.indexOf(letter)
-    
-    while(n != -1){
-        newStatusWord = ""
-        for(var i = 0; i < guessingWord.length; i++){
-            if(i == n){
-                newStatusWord = newStatusWord + letter
-            }else{
-                newStatusWord = newStatusWord + statusWord.charAt(i)
-            }
-            
-            
-        }
+    var i = guessingWord.indexOf(letter)
+    console.log(i.toString())
+    while(i != -1){
+        document.getElementById(i.toString()).innerHTML = letter
+        guessingWord = guessingWord.replace(letter, "-")
+        i = guessingWord.indexOf(letter)
     }
 }
 
@@ -108,12 +101,17 @@ function gameOver(){
 }
 
 function initStatusWord(statusWord){
+    var divToInsert
+    var container = document.getElementById("wordToGuess")
     for(var i = 0; i < guessingWord.length; i++){
-        console.log(statusWord)
-        statusWord = statusWord + "- "
+        divToInsert = document.createElement('div')
+        divToInsert.innerHTML = "-"
+        divToInsert.style.display = "inline-block"
+        divToInsert.style.width = "5%"
+        divToInsert.id = i.toString()
+        container.appendChild(divToInsert)
     }
 
-    document.getElementById("wordToGuess").innerText = statusWord
 }
 
 function checkLetter(letter){
