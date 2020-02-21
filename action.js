@@ -29,70 +29,59 @@ function hangman(hangmanState){
     var lleg = document.getElementById("lleg")
     var rleg = document.getElementById("rleg")
 
-    if(hangmanState == 0){
-        head.style.visibility = "hidden"
-        neck.style.visibility = "hidden"
-        body.style.visibility = "hidden"
-        larm.style.visibility = "hidden"
-        rarm.style.visibility = "hidden"
-        lleg.style.visibility = "hidden"
-        rleg.style.visibility = "hidden"        
-    } else if (hangmanState == 1){
-        head.style.visibility = "visible"
-        neck.style.visibility = "hidden"
-        body.style.visibility = "hidden"
-        larm.style.visibility = "hidden"
-        rarm.style.visibility = "hidden"
-        lleg.style.visibility = "hidden"
-        rleg.style.visibility = "hidden"         
+    if (hangmanState == 1){
+        head.style.visibility = "visible"        
     } else if (hangmanState == 2){
-        head.style.visibility = "visible"
-        neck.style.visibility = "visible"
-        body.style.visibility = "hidden"
-        larm.style.visibility = "hidden"
-        rarm.style.visibility = "hidden"
-        lleg.style.visibility = "hidden"
-        rleg.style.visibility = "hidden" 
+        neck.style.visibility = "visible" 
     } else if (hangmanState == 3){
-        head.style.visibility = "visible"
-        neck.style.visibility = "visible"
         body.style.visibility = "visible"
-        larm.style.visibility = "hidden"
-        rarm.style.visibility = "hidden"
-        lleg.style.visibility = "hidden"
-        rleg.style.visibility = "hidden" 
     } else if (hangmanState == 4){
-        head.style.visibility = "visible"
-        neck.style.visibility = "visible"
-        body.style.visibility = "visible"
         larm.style.visibility = "visible"
-        rarm.style.visibility = "hidden"
-        lleg.style.visibility = "hidden"
-        rleg.style.visibility = "hidden" 
     }else if (hangmanState == 5){
-        head.style.visibility = "visible"
-        neck.style.visibility = "visible"
-        body.style.visibility = "visible"
-        larm.style.visibility = "visible"
         rarm.style.visibility = "visible"
-        lleg.style.visibility = "hidden"
-        rleg.style.visibility = "hidden" 
     }else if (hangmanState == 6){
-        head.style.visibility = "visible"
-        neck.style.visibility = "visible"
-        body.style.visibility = "visible"
-        larm.style.visibility = "visible"
-        rarm.style.visibility = "visible"
         lleg.style.visibility = "visible"
-        rleg.style.visibility = "hidden" 
     } else {
-        head.style.visibility = "visible"
-        neck.style.visibility = "visible"
-        body.style.visibility = "visible"
-        larm.style.visibility = "visible"
-        rarm.style.visibility = "visible"
-        lleg.style.visibility = "visible"
         rleg.style.visibility = "visible" 
+    }
+}
+
+function createTable(){
+    var wrapper3 = document.getElementById("wrapper3")
+    var table = document.createElement("table")
+
+    var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    var k = 0
+    for(let i = 0; i < 3; i++){
+        var row = document.createElement("tr")
+        for(let j = 0; j < 10; j++){
+            if(i == 2){
+                if(j == 0 || j == 1 || j == 8 || j == 9){
+                    var cell = document.createElement("td")
+                    cell.id == "none"
+                    row.appendChild(cell)
+                    continue
+                }
+            }
+            var cell = document.createElement("td")
+            cell.id = letters[k]
+            cell.className = "word"
+            var text = document.createTextNode(letters[k])
+            cell.append(text)
+            tableCells.set(letters[k], cell)
+            row.appendChild(cell)
+            k++
+        }
+        table.appendChild(row)
+    }
+    initEventListener()
+    wrapper3.appendChild(table)
+    
+}
+
+function initEventListener(){
+    for(let cell of tableCells){
+        cell[1].addEventListener("click", () => checkLetter(cell[0]))
     }
 }
 
@@ -115,11 +104,10 @@ function initStatusWord(statusWord){
 }
 
 function checkLetter(letter){
-    // console.log("Kliknuto")
-    var element = document.getElementById(letter)
-    element.style.visibility = "hidden"
+    console.log("Kliknuto " + letter)
+    var element = tableCells.get(letter)
     console.log(guessingWord.includes(letter))
-
+    element.style.visibility = "hidden"
     putLetterInList(letter)
     if(guessingWord.includes(letter)){
         putLetterInWord(letter)
@@ -137,11 +125,12 @@ function checkLetter(letter){
 }
 
 
-
+var tableCells = new Map()
 var clickedLetters = ""
 var guessingWord = "DOCTORS"
 var hangmanState = 0
 var statusWord = ""
 initStatusWord(statusWord)
+createTable()
 console.log(hangmanState)
-hangman(hangmanState)
+//hangman(hangmanState)
