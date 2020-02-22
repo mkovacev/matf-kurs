@@ -1,3 +1,5 @@
+'use strict'
+
 function putLetterInList(letter){
     if(clickedLetters == "")
     {
@@ -14,6 +16,7 @@ function putLetterInWord(letter){
     var i = guessingWord.indexOf(letter)
     console.log(i.toString())
     while(i != -1){
+        gameProgress++
         document.getElementById(i.toString()).innerHTML = letter
         guessingWord = guessingWord.replace(letter, "-")
         i = guessingWord.indexOf(letter)
@@ -41,7 +44,7 @@ function hangman(hangmanState){
         rarm.style.visibility = "visible"
     }else if (hangmanState == 6){
         lleg.style.visibility = "visible"
-    } else {
+    }else if (hangmanState == 7){
         rleg.style.visibility = "visible" 
     }
 }
@@ -74,9 +77,8 @@ function createTable(){
         }
         table.appendChild(row)
     }
-    initEventListener()
     wrapper3.appendChild(table)
-    
+    initEventListener()
 }
 
 function initEventListener(){
@@ -89,7 +91,45 @@ function gameOver(){
     document.getElementById("gameOver").style.visibility = "visible"
 }
 
-function initStatusWord(statusWord){
+function gameWon(){
+    console.log("Game Won")
+    var gameWonDiv = document.getElementById("gameWon")
+    gameWonDiv.style.position = "fixed"
+    gameWonDiv.style.left = "20%"
+    gameWonDiv.style.top = "30%"
+    gameWonDiv.style.height = "50%"
+    gameWonDiv.style.width = "60%"
+    gameWonDiv.style.display = "table-cell"
+    gameWonDiv.style.verticalAlign = "middle"
+    gameWonDiv.style.background = "green"
+    gameWonDiv.style.border = "2px dotted black"
+    gameWonDiv.style.textAlign = "center"
+    // making congratulations text part
+    var gameWonPara = document.createElement("p")
+    gameWonPara.append(document.createTextNode("CONGRATULATIONS, YOU WON!"))
+    // making score display part
+    var scorePara = document.createElement("p")
+    scorePara.appendChild(document.createTextNode("SCORE: " + score))
+    // making enter nick part
+    var enterNickPara = document.createElement("p")
+    enterNickPara.appendChild(document.createTextNode("YOUR NICK: "))
+
+    var input = document.createElement("input")
+    input.id = "nickInput"
+
+    var saveButton = document.createElement("button")
+    saveButton.innerHTML = "SAVE"
+
+    // appending parts to div
+    gameWonDiv.appendChild(gameWonPara)
+    gameWonDiv.appendChild(scorePara)
+    gameWonDiv.appendChild(enterNickPara)
+    gameWonDiv.appendChild(input)
+    gameWonDiv.appendChild(saveButton)
+    
+}
+
+function initStatusWord(){
     var divToInsert
     var container = document.getElementById("wordToGuess")
     for(var i = 0; i < guessingWord.length; i++){
@@ -100,37 +140,54 @@ function initStatusWord(statusWord){
         divToInsert.id = i.toString()
         container.appendChild(divToInsert)
     }
+}
 
+function setScore(score){
+    var scoreDiv = document.getElementById("score")
+    scoreDiv.innerText = "score: " + score
 }
 
 function checkLetter(letter){
-    console.log("Kliknuto " + letter)
-    var element = tableCells.get(letter)
-    console.log(guessingWord.includes(letter))
+    //console.log("Kliknuto " + letter)
+
+    // getting table cell with selected letter
+    var element = tableCells.get(letter) 
+    //console.log(guessingWord.includes(letter))
     element.style.visibility = "hidden"
     putLetterInList(letter)
     if(guessingWord.includes(letter)){
         putLetterInWord(letter)
-    } else {
-        hangmanState = hangmanState + 1
-        console.log(hangmanState)
-        if(hangmanState == 7){
-            hangman(hangmanState)
-            gameOver()
-        } else {
-            hangman(hangmanState)
+        score = score + 2
+        console.log("Progress: " + gameProgress)
+        console.log("Word length: " + guessingWordLength)       
+        if(gameProgress == guessingWordLength){
+            gameWon()
         }
         
-    }      
+    } else {
+        score = score - 1
+        hangmanState = hangmanState + 1
+        //console.log(hangmanState)
+        hangman(hangmanState)
+        if(hangmanState == 7){
+            gameOver()
+        }
+        
+    }  
+    setScore(score) 
+    
 }
 
-
+var gameProgress = 0
+var score = 0
 var tableCells = new Map()
 var clickedLetters = ""
-var guessingWord = "DOCTORS"
+var guessingWordsList = ["DOCTORS", "CONVERSATION", "TEMPERATURE", "SUPERMARKET"]
+var guessingWord = "C"
+var guessingWordLength = guessingWord.length
 var hangmanState = 0
-var statusWord = ""
-initStatusWord(statusWord)
+setScore(score)
+initStatusWord()
 createTable()
-console.log(hangmanState)
+//console.log(hangmanState)
 //hangman(hangmanState)

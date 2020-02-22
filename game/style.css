@@ -133,13 +133,13 @@ body {
 }
 #rleg{
     position: absolute;
+    visibility:  hidden;
     top: 90px;
     left: 51px;
     margin: 20px;
     height: 30px;
     width: 10px;
     content: url("data/Lleg.png");
-    visibility:  hidden;
 }
 
 #wrapper3 {
