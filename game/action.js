@@ -119,6 +119,7 @@ function gameWon(){
 
     var saveButton = document.createElement("button")
     saveButton.innerHTML = "SAVE"
+    saveButton.addEventListener("click", () => onSaveButton())
 
     // appending parts to div
     gameWonDiv.appendChild(gameWonPara)
@@ -126,6 +127,29 @@ function gameWon(){
     gameWonDiv.appendChild(enterNickPara)
     gameWonDiv.appendChild(input)
     gameWonDiv.appendChild(saveButton)
+    
+}
+
+function onSaveButton(){
+    console.log("On save function")
+    let nick = document.getElementById('nickInput').value
+
+    let xmlRequest = new XMLHttpRequest()
+    xmlRequest.open('POST', 'http://localhost:8787/users')
+    xmlRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+    xmlRequest.onreadystatechange = () => {
+        let DONE = XMLHttpRequest.DONE,
+            OK = 200;
+        if(xmlRequest.readyState === DONE){
+            if(xmlRequest.status === OK){
+                console.log(xmlRequest.responseText)
+            }else{
+                console.log("Ajax error: " + xmlRequest.status)
+            }
+        }
+    }
+    xmlRequest.send(`id=${1}&nick=${nick}&score=${score}`)
+
     
 }
 

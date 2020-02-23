@@ -1,12 +1,12 @@
 const util = require('util')
 const MongoDBService = require('../services/MongoDBService')
-const ObjectID = require('mongodb').ObjectID
+const ObjectID = require('mongodb').ObjectId
 class UsersController{
     constructor(request, response){
         this.request = request
         this.response = response
 
-        this.MongoDBService = new MongoDBService('mongodb://root:sifra@localhost:6000', 
+        this.MongoDBService = new MongoDBService('mongodb://root:sifra@localhost:27017', 
                                                 'MongoBase_project_database')
     }
 
@@ -15,8 +15,20 @@ class UsersController{
             new UsersController(req, res).getUsers()
         })
 
+        app.get('/users/:id', (req, res) => {
+            new UsersController(req, res).getUser()
+        })
+
         app.post('/users', (req, res) => {
             new UsersController(req, res).postUsers()
+        })
+
+        app.put('/users', (req, res) => {
+            new UsersController(req, res).putUser()
+        })
+
+        app.delete('/users', (req, res) => {
+            new UsersController(req, res).deleteUser()
         })
     }
 
@@ -32,7 +44,7 @@ class UsersController{
     async getUser(){
         await this.MongoDBService.connect()
 
-        let user = await this.MongoDBService.findOne('users', {_id: ObjectID(this.request.params.id)})
+        let user = await this.MongoDBService.findOne('users', {id: ObjectID(this.request.params.id)})
 
         await this.MongoDBService.disconnect()
         this.response.send(user)

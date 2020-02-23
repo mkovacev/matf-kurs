@@ -2,27 +2,14 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const UsersControler = require('./src/controllers/UserController')
+const UsersControler = require('./controllers/UsersController')
 
 const app = express()
-const port = 6000
+const port = 8787
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
 UsersControler.RegisterRoutes(app)
-
-let users = [
-    {
-        "id": 1,
-        "nick": "Matke",
-        "score": 1234
-    },
-    {   
-        "id": 2,
-        "nick": "Mare",
-        "score": 123
-    }
-]
 
 // app.get('/users', (request, response) => {
 //     console.log('get users')
