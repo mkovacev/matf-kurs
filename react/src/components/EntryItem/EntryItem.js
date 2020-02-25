@@ -8,13 +8,10 @@ const EntryItem = props => (
     <div className="ui card">
       <div className="content">
         <div className="header">
-          {props.entry.name} - {props.entry.phone}
+          {props.entry.nick} - {props.entry.score}
         </div>
       </div>
       <div className="extra content">
-        <Link to={`/entries/${props.entry.id}`}>
-          <button className="ui button">Details</button>
-        </Link>
         <button
           className="ui button"
           onClick={() => props.deleteEntry(props.entry.id)}
