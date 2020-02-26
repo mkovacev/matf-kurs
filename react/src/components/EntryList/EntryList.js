@@ -19,7 +19,7 @@ class EntryList extends React.Component {
     <div className="entry-list">
       {this.state.entries.map(entry => (
         <EntryItem
-          key={entry.id}
+          key={entry._id}
           entry={entry}
           deleteEntry={this.deleteEntry}
         />
@@ -33,8 +33,9 @@ class EntryList extends React.Component {
     entriesApi.getEntries().then(entries => this.setState({ entries }));
   }
 
-  deleteEntry = id => {
-    entriesApi.deleteEntry(id).then(() => this.fetchEntries());
+  deleteEntry = nick => {
+    console.log(nick)
+    entriesApi.deleteEntry(nick).then(() => this.fetchEntries());
   };
 }
 

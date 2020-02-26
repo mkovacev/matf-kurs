@@ -33,8 +33,7 @@ body {
     text-align: center;
     border: cornsilk;
     background-color: crimson;
-
-
+    border: 2px dotted black;
 }
 
 #score {
@@ -181,6 +180,22 @@ td{
     cursor: pointer;
 }
 
+#gameWon, #successSaveDiv{
+    position: fixed;
+    left: 20%;
+    top: 30%;
+    height: 50%;
+    width: 60%;
+    display: table-cell;
+    vertical-align: middle;
+    background: green;
+    border: 2px dotted black;
+    text-align: center;
+    visibility: hidden;
+}
+
+
+
 #gameOver{
     position: fixed;
     left: 20%;
@@ -195,4 +210,3 @@ td{
     border: 2px dotted black;
     visibility: hidden;
 }
-

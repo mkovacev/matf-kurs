@@ -6,14 +6,11 @@ import "./MenuBar.css";
 const MenuBar = () => (
   <div className="menu-bar">
     <img className="logo" src="logo.png" alt="logo"></img>
-    <ul className="menu-list">
-      <li className="menu-list-item">
-        <Link to="/">Home</Link>
-      </li>
-      <li className="menu-list-item">
-        <Link to="/entries/new">Create</Link>
-      </li>
-    </ul>
+    <div id="menu-bar-headline">Hangman leaderboards</div>
+    <div id="menu-bar-refresh">
+      <Link to="/">Refresh </Link>
+    </div>
+    
   </div>
 );
 

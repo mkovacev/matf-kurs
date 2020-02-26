@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import "./EntryItem.css";
 
@@ -14,7 +13,7 @@ const EntryItem = props => (
       <div className="extra content">
         <button
           className="ui button"
-          onClick={() => props.deleteEntry(props.entry.id)}
+          onClick={() => props.deleteEntry(props.entry.nick)}
         >
           Delete
         </button>

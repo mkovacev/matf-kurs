@@ -1,14 +1,20 @@
+@font-face {
+  font-family: myFont;
+  src: url(font/orange\ juice\ 2.0.ttf);
+}
+
 .menu-bar {
   width: 100%;
   border-bottom: 1px solid lightgray;
-  background: #1a1a1a;
+  font-family: myFont;
+  font-size: xx-large;
+  background: crimson;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  padding: 0 64px;
-  color: lightgray;
+  /* color: lightgray; */
 }
 
 .logo {
@@ -16,15 +22,12 @@
   height: 40px;
 }
 
-.menu-list {
+.menu-bar-refresh {
   list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   padding: 0;
-}
-
-.menu-list-item {
   margin: 0 16px;
 }

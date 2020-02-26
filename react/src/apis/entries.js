@@ -1,5 +1,4 @@
 import axios from "axios";
-import * as qs from "qs";
 
 class EntriesApi {
   config = {
@@ -20,47 +19,19 @@ class EntriesApi {
       );
   }
 
-  getEntry(id) {
+  getEntry(nick) {
     return this.httpClient
-      .get(`/users/${id}`)
+      .get(`/users/${nick}`)
       .then(response => this._mapResponseToEntry(response.data));
   }
 
-  createEntry(entry) {
-    const { id, nick, score } = entry;
-    const config = {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
-    };
-    const data = { id, nick, score };
-
-    return this.httpClient
-      .post(`/users`, qs.stringify(data), config)
-      .then(response => this._mapResponseToEntry(response.data));
-  }
-
-  editEntry(entry) {
-    const { id, nick, score } = entry;
-    const config = {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
-    };
-    const data = { id, nick, score };
-
-    return this.httpClient
-      .put(`/users/${id}`, qs.stringify(data), config)
-      .then(response => this._mapResponseToEntry(response.data));
-  }
-
-  deleteEntry(id) {
-    return this.httpClient.delete(`/users/${id}`);
+  deleteEntry(_id) {
+    return this.httpClient.delete(`/users/${_id}`);
   }
 
   _mapResponseToEntry(response) {
     return {
-      id: response._id,
+      _id: response._id,
       nick: response.nick,
       score: response.score,
     };
