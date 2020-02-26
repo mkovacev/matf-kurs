@@ -1,0 +1,11 @@
+*{
+    color: rgb(0, 0, 0);
+    font-family: myFont;
+    font-size: 115%;
+    
+}
+
+@font-face {
+    font-family: myFont;
+    src: url(font/orange\ juice\ 2.0.ttf);
+}

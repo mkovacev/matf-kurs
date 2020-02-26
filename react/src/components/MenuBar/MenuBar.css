@@ -1,12 +1,6 @@
-@font-face {
-  font-family: myFont;
-  src: url(font/orange\ juice\ 2.0.ttf);
-}
-
 .menu-bar {
   width: 100%;
   border-bottom: 1px solid lightgray;
-  font-family: myFont;
   font-size: xx-large;
   background: crimson;
   height: 80px;
@@ -14,7 +8,6 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  /* color: lightgray; */
 }
 
 .logo {
