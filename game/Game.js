@@ -44,7 +44,19 @@ class Game{
     }
 
     gameOver(){
-        document.getElementById("gameOver").style.visibility = "visible"
+        let gameOverDiv = document.getElementById("gameOver");
+        gameOverDiv.style.visibility = "visible"
+
+        let gameOverP = document.createElement('p');
+        gameOverP.style.fontSize = "90px";
+        gameOverP.innerText = "GAME OVER!"
+
+        let newGameButton = document.createElement("button");
+        newGameButton.innerHTML = "NEW GAME";
+        newGameButton.addEventListener('click', () => {window.location.reload()});
+        
+        gameOverDiv.appendChild(gameOverP);
+        gameOverDiv.appendChild(newGameButton);
     }
 
     gameWon(){

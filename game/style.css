@@ -201,11 +201,10 @@ td{
     left: 20%;
     top: 30%;
     width: 60%;
-    height: 40%;
+    height: 55%;
     text-align: center;
     display: table-cell;
     vertical-align: middle;
-    font-size: 90px;
     background-color: red;
     border: 2px dotted black;
     visibility: hidden;
